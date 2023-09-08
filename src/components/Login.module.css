@@ -3,9 +3,22 @@
 body {
   background: rgb(254, 254, 254);
   background: linear-gradient(
-    90deg,
+    0deg,
     rgba(254, 254, 254, 1) 0%,
     rgba(174, 243, 249, 1) 32%,
     rgba(0, 232, 255, 1) 100%
   );
+  height: 100%;
+}
+
+.loginContainer {
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+html {
+  height: 100%;
 }
