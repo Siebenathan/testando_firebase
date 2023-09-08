@@ -1,43 +1,49 @@
-import { useState } from 'react';
-import './Login.module.css';
+import { FormEvent, useState } from 'react';
+import styles from './Login.module.css';
 import { Link } from 'react-router-dom';
+import { auth } from '../services/firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 export default function Login() {
   const [usuario, setUsuario] = useState<string>('');
   const [senha, setSenha] = useState<string>('');
 
-  function enviarFormulario(e) {
+  function handleLogin(e: FormEvent) {
     e.preventDefault();
-    console.log(`${usuario}, ${senha}`);
+    signInWithEmailAndPassword();
   }
 
   return (
-    <div className="loginContainer">
-      <h1>Login</h1>
-      <form onSubmit={enviarFormulario}>
+    <div className={styles.loginContainer}>
+      <h1 className="teste">Login</h1>
+      <form onSubmit={handleLogin} className={styles.formContainer}>
         <div>
-          <label htmlFor="userName">Usuario: </label>
+          <div>
+            <label htmlFor="userName">Usuario: </label>
+          </div>
           <input
             type="text"
             id="userName"
             name="userName"
             value={usuario}
-            placeholder="Digite seu nome de usuário..."
             onChange={(e) => setUsuario(e.target.value)}
           />
         </div>
         <div>
-          <label htmlFor="userPassword">Senha: </label>
+          <div>
+            <label htmlFor="userPassword">Senha: </label>
+          </div>
           <input
             type="password"
             id="userPassword"
             name="userPassword"
             value={senha}
-            placeholder="Digite sua senha..."
             onChange={(e) => setSenha(e.target.value)}
           />
         </div>
-        <button type="submit">Enviar Formulário</button>
+        <button type="submit" className={styles.acessButton}>
+          Acessar
+        </button>
       </form>
       <Link to="/">Ir para a home</Link>
     </div>

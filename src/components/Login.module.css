@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;0,6..12,1000;1,6..12,200;1,6..12,300;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800;1,6..12,900;1,6..12,1000&display=swap');
 
+* {
+  font-family: 'Nunito Sans';
+}
+
 body {
   background: rgb(254, 254, 254);
   background: linear-gradient(
@@ -12,11 +16,39 @@ body {
 }
 
 .loginContainer {
-  background-color: white;
+  background: white;
   border-radius: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 30px;
+  width: 250px;
+}
+
+.loginContainer > h1 {
+  font-family: 'Nunito Sans';
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.acessButton {
+  background-color: blue;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.teste {
+  font-size: 50em;
 }
 
 html {
