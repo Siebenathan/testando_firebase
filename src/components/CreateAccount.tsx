@@ -1,30 +1,30 @@
-import styles from './Login.module.css';
+import styles from './CreateAccount.module.css';
 import { FormEvent, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { signIn } from '../services/firebase';
-import useLocalStorage from '../hooks/useLocalStorage';
+import { Link, useNavigate } from 'react-router-dom';
+import { createUser } from '../services/firebase';
 
 export default function Login() {
   const [usuario, setUsuario] = useState<string>('');
   const [senha, setSenha] = useState<string>('');
-  const [userId, setUserId] = useLocalStorage('useId', '');
+  const nav = useNavigate();
 
   function handleLogin(e: FormEvent) {
     e.preventDefault();
-    signIn(usuario, senha)
+    createUser(usuario, senha)
       .then((credentials) => {
-        alert('Bem-vindo!');
-        setUserId(credentials.user.id);
+        alert('Conta criada!');
+        nav('/login');
+        console.log(JSON.stringify(credentials));
       })
       .catch((err) => {
         console.log(err);
-        alert('Usuário ou senha estão incorretos!');
+        alert('Erro ao cadastrar!');
       });
   }
 
   return (
     <div className={styles.loginContainer}>
-      <h1 className="teste">Login</h1>
+      <h1 className="teste">Criar conta</h1>
       <form onSubmit={handleLogin} className={styles.formContainer}>
         <div>
           <div>
@@ -51,11 +51,11 @@ export default function Login() {
           />
         </div>
         <button type="submit" className={styles.acessButton}>
-          Acessar
+          Criar
         </button>
-        <button type="submit" className={styles.createButton}>
-          Criar conta
-        </button>
+        <Link className={styles.createButton} to="/login">
+          Ir para o Login
+        </Link>
       </form>
       <Link to="/">Ir para a home</Link>
     </div>
