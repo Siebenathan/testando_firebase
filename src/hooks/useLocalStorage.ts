@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { useState, useEffect } from 'react';
 
 export default function useLocalStorage(key: string, defaultValue: unknown) {
@@ -15,5 +13,5 @@ export default function useLocalStorage(key: string, defaultValue: unknown) {
     localStorage.setItem(key, JSON.stringify(value));
   }, [value, key]);
 
-  return [value, setValue];
+  return [value, setValue] as const;
 }

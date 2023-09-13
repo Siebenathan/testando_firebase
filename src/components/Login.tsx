@@ -7,14 +7,15 @@ import useLocalStorage from '../hooks/useLocalStorage';
 export default function Login() {
   const [usuario, setUsuario] = useState<string>('');
   const [senha, setSenha] = useState<string>('');
-  const [userId, setUserId] = useLocalStorage('useId', '');
+  const [userId, setUserId] = useLocalStorage('userId', '');
 
   function handleLogin(e: FormEvent) {
     e.preventDefault();
     signIn(usuario, senha)
       .then((credentials) => {
         alert('Bem-vindo!');
-        setUserId(credentials.user.id);
+        console.log(credentials.user.uid);
+        setUserId(credentials.user.uid);
       })
       .catch((err) => {
         console.log(err);

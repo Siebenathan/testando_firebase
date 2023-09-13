@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import CreateAccountPage from './pages/CreateAccountPage';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
+import UserPage from './pages/UserPage';
 
 import './style.css';
 
@@ -18,6 +19,10 @@ const browser = createBrowserRouter([
   {
     path: '/criar-conta',
     element: <CreateAccountPage />,
+  },
+  {
+    path: '/usuario',
+    element: <UserPage />,
   },
 ]);
 
