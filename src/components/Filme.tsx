@@ -15,7 +15,10 @@ export default function Filme(props: FilmeProps) {
         alt="poster do filme"
       />
       <small>{props.vote_average}</small>
-      <div>{props.nameOfTheFilm}</div>
+      <div>
+        <b>{props.release_data}</b>
+        {props.nameOfTheFilm}
+      </div>
     </div>
   );
 }

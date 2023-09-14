@@ -36,6 +36,7 @@ export default function UserPage() {
               nameOfTheFilm={movie.original_title}
               posterOfTheFilm={movie.poster_path}
               vote_average={movie.vote_average}
+              release_data={movie}
             />
           );
         })}
