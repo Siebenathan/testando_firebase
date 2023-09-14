@@ -39,3 +39,25 @@
 .filme div b {
   display: block;
 }
+
+.filme button {
+  background-color: #00000088;
+  transform: translateX(-50%);
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  color: #fff;
+  backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.7rem 1rem;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.052);
+  transition: all ease-in-out 200ms;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.filme:hover button {
+  opacity: 1;
+  top: 25%;
+}
