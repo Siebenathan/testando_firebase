@@ -23,9 +23,23 @@ export default function UserPage() {
       <h2>Seus favoritos</h2>
       <hr />
       <h2>Veja outros lançamentos</h2>
-      {movies?.map((movie) => {
-        return <Filme nameOfTheFilm={movie.original_title} posterOfTheFilm={movie.poster_path}/>
-      })}
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr 1fr',
+          gap: '1rem',
+        }}
+      >
+        {movies?.map((movie) => {
+          return (
+            <Filme
+              nameOfTheFilm={movie.original_title}
+              posterOfTheFilm={movie.poster_path}
+              vote_average={movie.vote_average}
+            />
+          );
+        })}
+      </div>
     </>
   );
 }
