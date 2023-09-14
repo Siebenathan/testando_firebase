@@ -2,6 +2,14 @@
   background-color: white;
   position: relative;
   border-radius: 0.5rem;
+  text-align: center;
+  box-shadow: #00000044 10px 0 20px -10px;
+  transform-origin: center bottom;
+  cursor: pointer;
+}
+
+.filme:hover {
+  transform: scale(1.01);
 }
 
 .filme img {
@@ -17,4 +25,17 @@
   color: #fff;
   width: 2rem;
   height: 2rem;
+  border-radius: 100%;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.filme div {
+  padding: 1rem;
+}
+
+.filme div b {
+  display: block;
 }
