@@ -26,14 +26,14 @@ export default function Filme({ filme }: FilmeProps) {
   return (
     <div className={styles.filme}>
       <img
-        src={'https://image.tmdb.org/t/p/w154' + props.posterOfTheFilm}
+        src={'https://image.tmdb.org/t/p/w154' + filme.posterOfTheFilm}
         alt="poster do filme"
       />
-      <small>{props.vote_average}</small>
+      <small>{filme.vote_average}</small>
       <button onClick={handleSaveMovie}>+ Adicionar</button>
       <div>
-        {props.nameOfTheFilm}
-        <b>{props.release_data}</b>
+        {filme.nameOfTheFilm}
+        <b>{filme.release_data}</b>
       </div>
     </div>
   );
