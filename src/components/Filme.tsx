@@ -1,15 +1,26 @@
 import styles from './Filme.module.css';
 
-interface FilmeProps {
+import { db, addItem } from '../services/firebase';
+
+interface FilmeInterface {
   nameOfTheFilm: string;
   posterOfTheFilm: string;
   vote_average: number;
   release_data?: string;
+  movie_id: number;
 }
 
-export default function Filme(props: FilmeProps) {
+export interface FilmeProps {
+  filme: FilmeInterface;
+}
+
+export default function Filme({ filme }: FilmeProps) {
   function handleSaveMovie() {
-    alert('Filme salvo ' + props.nameOfTheFilm);
+    addItem('movies', filme.movie_id.toString(), {})
+      .then((result) => {
+        alert('Filme salvo ' + filme.nameOfTheFilm);
+      })
+      .catch((err) => console.log(err));
   }
 
   return (

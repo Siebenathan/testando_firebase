@@ -31,14 +31,7 @@ export default function UserPage() {
         }}
       >
         {movies?.map((movie) => {
-          return (
-            <Filme
-              nameOfTheFilm={movie.original_title}
-              posterOfTheFilm={movie.poster_path}
-              vote_average={movie.vote_average}
-              release_data={movie.release_date}
-            />
-          );
+          return <Filme filme={movie} />;
         })}
       </div>
     </>
