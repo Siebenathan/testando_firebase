@@ -7,6 +7,18 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from 'firebase/auth';
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  updateDoc,
+  deleteDoc,
+  collection,
+  query,
+  where,
+  getDocs,
+  onSnapshot,
+} from 'firebase/firestore';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -35,4 +47,9 @@ export function signIn(usuario: string, senha: string) {
 
 export function createUser(usuario: string, senha: string) {
   return createUserWithEmailAndPassword(auth, usuario, senha);
+}
+
+export function addItem(colecao: string, document: string, data: unknown) {
+  const docRef = doc(db, colecao, document);
+  return setDoc(docRef, data);
 }

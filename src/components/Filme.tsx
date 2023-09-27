@@ -8,6 +8,10 @@ interface FilmeProps {
 }
 
 export default function Filme(props: FilmeProps) {
+  function handleSaveMovie() {
+    alert('Filme salvo ' + props.nameOfTheFilm);
+  }
+
   return (
     <div className={styles.filme}>
       <img
@@ -15,7 +19,7 @@ export default function Filme(props: FilmeProps) {
         alt="poster do filme"
       />
       <small>{props.vote_average}</small>
-      <button>+ Adicionar</button>
+      <button onClick={handleSaveMovie}>+ Adicionar</button>
       <div>
         {props.nameOfTheFilm}
         <b>{props.release_data}</b>
